@@ -13,5 +13,7 @@ auth = tw.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
 
-tweets_covid= tw.Cursor(api.search,q='covid',lang="id",since='2021-01-01').items(5)
-[tweet.text for tweet in tweets_covid]
+tweets_covid=tw.Cursor(api.search,q='covid',lang='id').items(10000)
+tweets_list=[tweet.text for tweet in tweets_covid]
+
+tweet_df=pd.DataFrame(tweets_list,columns=['Text'])
