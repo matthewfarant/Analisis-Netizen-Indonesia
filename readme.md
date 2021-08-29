@@ -28,4 +28,6 @@ Re </br>
 NLTK </br>
 Wordcloud </br>
 
+## On Progress... 👷
+I'm currently working on the sentiment analysis of the tweets and explore any other types of visualizations that I can use. So, stay tuned!
 
