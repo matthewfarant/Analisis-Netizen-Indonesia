@@ -6,7 +6,7 @@ The objective of this project is to observe the daily changes of public (netizen
 
 ## Data Pipeline
 Every 9 AM in Indonesia Local Time (WIB), Airflow will execute a container of tasks (called DAG or Directed Acyclic Graph) that include data scraping, data cleaning, wordcloud making, and twitter posting.
-![Flow of Task](https://user-images.githubusercontent.com/64967317/131256569-ccdff803-1b46-4a27-9ee1-2f408f88256b.png)
+![image](https://user-images.githubusercontent.com/64967317/131257222-92ba48b0-afc0-4ea7-a016-7efb0736c35e.png)
 The tweets data are scraped via standard twitter API, which will later be cleaned (remove stopwords using NLTK data, remove mentions, links, hashtags, etc) and visualized using wordcloud. This task will be automated everyday, which means you will see a wordcloud post in my [twitter account](https://twitter.com/FarantMatthew) every 9 AM.
 
 ## Tools that I used
