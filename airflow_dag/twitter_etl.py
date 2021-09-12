@@ -6,13 +6,14 @@ import re
 import nltk
 from nltk.corpus import stopwords
 from wordcloud import WordCloud, ImageColorGenerator
+from airflow.models import Variable
 
 def run_twitter_etl():
     #authentication (confidential)
-    consumer_key= ''
-    consumer_secret= ''
-    access_token= ''
-    access_token_secret= ''
+    consumer_key= Variable.get('TWITTER_CONSUMER_KEY')
+    consumer_secret= Variable.get('TWITTER_CONSUMER_SECRET')
+    access_token= Variable.get('TWITTER_ACCESS_TOKEN')
+    access_token_secret= Variable.get('TWITTER_ACCESS_TOKEN_SECRET')
     auth = tw.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tw.API(auth, wait_on_rate_limit=True)
@@ -53,10 +54,10 @@ def run_twitter_etl():
 
 def run_twitter_post():
     #authentication (confidential)
-    consumer_key= ''
-    consumer_secret= ''
-    access_token= ''
-    access_token_secret= ''
+    consumer_key= Variable.get('TWITTER_CONSUMER_KEY')
+    consumer_secret= Variable.get('TWITTER_CONSUMER_SECRET')
+    access_token= Variable.get('TWITTER_ACCESS_TOKEN')
+    access_token_secret= Variable.get('TWITTER_ACCESS_TOKEN_SECRET')
     auth = tw.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tw.API(auth, wait_on_rate_limit=True)
